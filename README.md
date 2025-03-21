@@ -1,6 +1,5 @@
-### **Title: Integrated AR Signal Trading Engine & Backtester**
+# **AR Signal Trading Engine & Backtester**
 
-**Overview:**  
 This project builds an end-to-end quantitative trading system by combining an autoregressive (AR) model–based signal generator with a trading strategy backtesting engine. It fetches market data via API requests, computes AR model coefficients using the Levinson-Durbin algorithm, generates trading signals, and then backtests these signals against historical data.
 
 ### **Key Components:**
