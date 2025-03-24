@@ -191,7 +191,15 @@ int bestOrder = 20;
 // code continue
 ```
 
-Results: 
+Results:
+![image](https://github.com/user-attachments/assets/48cd5a9e-da0a-458e-9467-0c094e1f7703)
+![image](https://github.com/user-attachments/assets/50fd6076-bc85-4d3a-9519-52322e210f83)
+![image](https://github.com/user-attachments/assets/3f5ba9bc-9ae9-4f20-a85b-33db1571cf61)
+
+A possibly cleaner interpretation of accuracy is using the MAPE:
+![image](https://github.com/user-attachments/assets/6851616c-40b9-418f-b434-8d038cf44525)
+
+We notice that at order $P=73,~\text{MAPE}<2%$, meaning the model is $>98%$ accurate in predicting the next $300-240=60$ days.
 
 ---
 
