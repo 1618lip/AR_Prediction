@@ -42,12 +42,15 @@ This project demonstrates how to:
 We generate synthetic stock prices $\{P_t\}$ via:
 
 $$P_{t+1} = P_t \times e^{(\mu - \tfrac{1}{2}\sigma^2)\Delta t + \sigma\sqrt{\Delta t}\,Z_t},$$
+
 where $\mu$ is the drift, $\sigma$ is the volatility, $\Delta t$ is the time increment (e.g., $1/252$ for daily in a 252-trading-day year), and $Z_t \sim \mathcal{N}(0,1)$.
 
 ### 3.2 Differencing to Achieve Stationarity
 
 Raw stock prices are non-stationary. We apply **first differencing**:
+
 $$d_t = P_{t+1} - P_t.$$
+
 This differenced series $\{d_t\}$ often behaves more like a stationary process (assuming drift and slow changes). An AR model can then be fit to $\{d_t\}$.
 
 ### 3.3 Autoregressive Model (AR(\(p\)))
@@ -55,14 +58,15 @@ This differenced series $\{d_t\}$ often behaves more like a stationary process (
 An $\text{AR}(p)$ model for the differenced series $\{d_t\}$ is:
 
   $$d_{t} = \phi_1 d_{t-1} + \phi_2 d_{t-2} + \cdots + \phi_p d_{t-p} + \epsilon_t,$$
+  
 where $\epsilon_t$ is white noise. We use **Levinson-Durbin** recursion to solve for $\phi_1, \ldots, \phi_p$.
 
 ### 3.4 Forecast Reconstruction (Integration)
 
 Once we forecast $\hat{d}_{t+1}, \hat{d}_{t+2}, \ldots$ in differenced space, we reconstruct the actual price by cumulatively adding these differences to the last known price $P_{T}$:
 
-$$\hat{P}_{T+1} = P_T + \hat{d}_{T+1},\quad
-  \hat{P}_{T+2} = \hat{P}_{T+1} + \hat{d}_{T+2},\quad \dots$$
+$$\hat{P}_{T+1} = P_T + \hat{d}_{T+1},\quad\hat{P}_{T+2} = \hat{P}_{T+1} + \hat{d}_{T+2},\quad \dots$$
+  
 This “integration” step returns us to the original scale.
 
 ### 3.5 Model Order Selection
