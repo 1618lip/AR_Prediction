@@ -1,6 +1,10 @@
-# AR Model Forecasting with Differencing 
+<h1 align='center'>
+  AR Model Forecasting with Differencing 
+</h1>
 
 ## 1. Overview
+<p align='center'>
+
 
 This project demonstrates how to:
 
@@ -11,6 +15,17 @@ This project demonstrates how to:
 5. **Perform model order selection** (choose the best AR order based on a validation set).  
 6. **Compute error metrics** (MSE, RMSE, MAPE) to evaluate forecasts.  
 7. **Animate the best-model forecast** in Python.
+</p>
+
+<p align='center'>
+  <a href="#"><img alt="" src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" /></a>
+   <a href="#"><img alt="" src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue" /></a>
+   <a href="#"><img alt="" src="https://img.shields.io/badge/CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white" /></a>
+   <a href="#"><img alt="" src="https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" /></a>
+   <a href="#"><img alt="" src="https://img.shields.io/badge/LaTeX-47A141?style=for-the-badge&logo=LaTeX&logoColor=white" /></a>
+</p>
+<br />
+
 
 ---
 
