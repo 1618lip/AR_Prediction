@@ -39,13 +39,9 @@ This project demonstrates how to:
    The “best” AR order is not always obvious. We systematically try $\text{AR(m)}, \text{AR(m+1)},...,\text{AR(p)}$ and pick the one that yields the lowest forecast error (MSE) on a hold-out validation set. Here $m=20$, which is reasonable since low order model won't be good. 
 
 4. **Error Metrics:**  
-   - **MSE** (Mean Squared Error):  
-     $\text{MSE} = \frac{1}{n}\sum_{i=1}^n (\hat{y}_i - y_i)^2.$
-   - **RMSE** (Root MSE):  
-     $\text{RMSE} = \sqrt{\text{MSE}}.$
-   - **MAPE** (Mean Absolute Percentage Error):  
-     $\text{MAPE} = \frac{100}{n} \sum_{i=1}^{n} \left|\frac{y_i - \hat{y}_i}{y_i}\right|.$
-   These help us see how close forecasts are to actual values.
+   - **MSE** (Mean Squared Error): $\text{MSE} = \frac{1}{n}\sum_{i=1}^n (\hat{y}_i - y_i)^2.$
+   - **RMSE** (Root MSE): $\text{RMSE} = \sqrt{\text{MSE}}.$
+   - **MAPE** (Mean Absolute Percentage Error): $\text{MAPE} = \frac{100}{n} \sum_{i=1}^{n} \left|\frac{y_i - \hat{y}_i}{y_i}\right|.$
 ---
 
 ## 3. Theoretical Background
@@ -96,7 +92,21 @@ We try AR orders $1,2,\ldots,\text{maxOrder}$. For each order:
 ## 4. Implementation Details
 
 ### 4.1 C++ Code Structure
+### Project Structure 
 
+```css
+AR_Prediction/
+├── CMakeLists.txt
+├── README.md
+├── src
+│   ├── GenerateSyntheticData.h
+│   ├── GenerateSyntheticData.h
+│   ├── AR_Model.h
+│   ├── AR_Model.cpp
+│   └── main.cpp
+└── vis
+    └── plot_data.py
+```
 1. **`SyntheticDataGenerator.cpp`:**  
    Generates GBM prices.  
 2. **`ARModel.cpp`:**  
@@ -149,7 +159,7 @@ We try AR orders $1,2,\ldots,\text{maxOrder}$. For each order:
    The differenced or log-return data will be near zero, so the AR forecast often flattens to zero. That is not an error—it indicates there’s minimal signal to deviate from a near-mean forecast.
 
 2. **If $\mu$ or $\sigma$ are larger:**  
-   - You’ll see more variability in differenced/log-return data.  
+   - More variability in differenced/log-return data.  
    - The AR forecast might show more dynamic multi-step predictions.
 
 3. **AR Order Tends to Be Low:**  
