@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/phili/OneDrive/Documents/AR_Signal_Trading/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\ARForecasting.dir\\src\\main.cpp.obj -c C:\\Users\\phili\\OneDrive\\Documents\\AR_Signal_Trading\\src\\main.cpp",
+  "file": "C:/Users/phili/OneDrive/Documents/AR_Signal_Trading/src/main.cpp",
+  "output": "CMakeFiles/ARForecasting.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/phili/OneDrive/Documents/AR_Signal_Trading/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\ARForecasting.dir\\src\\ARModel.cpp.obj -c C:\\Users\\phili\\OneDrive\\Documents\\AR_Signal_Trading\\src\\ARModel.cpp",
+  "file": "C:/Users/phili/OneDrive/Documents/AR_Signal_Trading/src/ARModel.cpp",
+  "output": "CMakeFiles/ARForecasting.dir/src/ARModel.cpp.obj"
+},
+{
+  "directory": "C:/Users/phili/OneDrive/Documents/AR_Signal_Trading/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\ARForecasting.dir\\src\\SyntheticDataGenerator.cpp.obj -c C:\\Users\\phili\\OneDrive\\Documents\\AR_Signal_Trading\\src\\SyntheticDataGenerator.cpp",
+  "file": "C:/Users/phili/OneDrive/Documents/AR_Signal_Trading/src/SyntheticDataGenerator.cpp",
+  "output": "CMakeFiles/ARForecasting.dir/src/SyntheticDataGenerator.cpp.obj"
+}
+]
