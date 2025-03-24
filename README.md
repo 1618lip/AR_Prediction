@@ -22,7 +22,7 @@ This project demonstrates how to:
 6. **Compute error metrics** (MSE, RMSE, MAPE) to evaluate forecasts.  
 7. **Animate the best-model forecast** in Python.
 </p>
-<br />
+<br/>
 
 
 ---
@@ -62,7 +62,7 @@ $$d_t = P_{t+1} - P_t.$$
 
 This differenced series $\{d_t\}$ often behaves more like a stationary process (assuming drift and slow changes). An AR model can then be fit to $\{d_t\}$.
 
-### 3.3 Autoregressive Model (AR(\(p\)))
+### 3.3 Autoregressive Model $\text{AR}(p)$
 
 An $\text{AR}(p)$ model for the differenced series $\{d_t\}$ is:
 
@@ -72,9 +72,9 @@ where $\epsilon_t$ is white noise. We use **Levinson-Durbin** recursion to solve
 
 ### 3.4 Forecast Reconstruction (Integration)
 
-Once we forecast $\hat{d}_{t+1}, \hat{d}_{t+2}, \ldots$ in differenced space, we reconstruct the actual price by cumulatively adding these differences to the last known price $P_{T}$:
+Once we forecast $d_{t+1}, d_{t+2}, \ldots$ in differenced space, we reconstruct the actual price by cumulatively adding these differences to the last known price $P_{T}$:
 
-$$\hat{P}_{T+1} = P_T + \hat{d}_{T+1},\quad\hat{P}_{T+2} = \hat{P}_{T+1} + \hat{d}_{T+2},\quad \dots$$
+$$P_{T+1} = P_T + d_{T+1},\quad P_{T+2} = P_{T+1} + d_{T+2},\quad \dots$$
   
 This “integration” step returns us to the original scale.
 
@@ -110,7 +110,7 @@ AR_Prediction/
 1. **`SyntheticDataGenerator.cpp`:**  
    Generates GBM prices.  
 2. **`ARModel.cpp`:**  
-   - Implements the Levinson-Durbin recursion to compute AR(\(p\)) coefficients.  
+   - Implements the Levinson-Durbin recursion to compute $\text{AR}(p)$ coefficients.  
    - Provides functions for one-step and multi-step forward predictions in differenced space.  
 3. **`main.cpp`:**  
    - Generates `fullPrices` via GBM.  
@@ -161,12 +161,37 @@ AR_Prediction/
 2. **If $\mu$ or $\sigma$ are larger:**  
    - More variability in differenced/log-return data.  
    - The AR forecast might show more dynamic multi-step predictions.
-
-3. **AR Order Tends to Be Low:**  
-   Real or synthetic stock data often doesn’t have strong autocorrelation beyond a few lags, so a big AR order (e.g., 100) might revert to a near-zero forecast or overfit the training set. The code will confirm the best order is typically small, unless your synthetic data is contrived to have long memory.
-
-4. **Animation:**  
+     
+3. **Animation:**  
    The animation helps visualize how each day of the forecast lines up with the actual future. For a random-walk-like series, you might see wide deviations. For a stable series, the forecast line might track the actual fairly closely.
+
+### Example
+Parameters: 
+```cpp
+// FOR SYNTHETIC DATA GENERATION
+int totalDays = 300;      // Total data length
+int trainDays = 240;      // Use first 240 days for training
+int validDays = totalDays - trainDays; // Forecast horizon 
+double S0 = 100.0;        // Initial stock price
+double mu = 0.01;         // Drift (adjust as needed)
+double sigma = 0.1;      // Volatility (adjust as needed)
+double deltaT = 1.0 / totalDays; // Time increment (using trainDays)
+
+// Generate full synthetic price series.
+std::vector<double> fullPrices = SyntheticDataGenerator::generateGBM(
+    totalDays, S0, mu, sigma, deltaT, 42
+);
+
+
+// Determine Best AR Model Order (over Differenced Data) based on MSE
+int maxOrder = 80;  // Try AR orders from 1 to 10.
+std::vector<double> orders, mses, rmses, mapes;
+double bestMse = std::numeric_limits<double>::infinity();
+int bestOrder = 20;
+// code continue
+```
+
+Results: 
 
 ---
 
