@@ -199,7 +199,7 @@ Results:
 A possibly cleaner interpretation of accuracy is using the MAPE:
 ![image](https://github.com/user-attachments/assets/6851616c-40b9-418f-b434-8d038cf44525)
 
-We notice that at order $P=73,~\text{MAPE}<2%$, meaning the model is $>98%$ accurate in predicting the next $300-240=60$ days.
+We notice that at order $P=73,~\text{MAPE}<2\%$, meaning the model is $>98\%$ accurate in predicting the next $300-240=60$ days.
 
 ---
 
