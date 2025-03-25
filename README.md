@@ -50,7 +50,7 @@ This project demonstrates how to:
 
 We generate synthetic stock prices $\{P_t\}$ via:
 
-$$P_{t+1} = P_t \times e^{(\mu - \tfrac{1}{2}\sigma^2)\Delta t + \sigma\sqrt{\Delta t}\,Z_t},$$
+$$P_{t+1} = P_t e^{(\mu - \tfrac{1}{2}\sigma^2)\Delta t + \sigma\sqrt{\Delta t}\,Z_t},$$
 
 where $\mu$ is the drift, $\sigma$ is the volatility, $\Delta t$ is the time increment (e.g., $1/252$ for daily in a 252-trading-day year), and $Z_t \sim \mathcal{N}(0,1)$.
 
